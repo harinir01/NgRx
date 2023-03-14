@@ -49,7 +49,6 @@ export class PolicyformComponent implements OnInit {
   }
   ngOnChanges(){
     console.warn(this.policyid);
-    // console.warn(this.policyDetail.policyId);
     this.LoadForm();
     if(this.type=="view")
     this.policyForm.disable();

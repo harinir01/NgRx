@@ -50,32 +50,13 @@ export class ViewpolicyComponent implements OnInit{
     HouseAddress: "",
     AssetValue: 0
   }]
-  // getPolicyById(policyId: number) {
-  //   this.service.getPolicyById(this.policyId).subscribe({
-  //     next: (data: any) => {
-  //       this.policyDetails = data;
-  //     }
-  //   });
-  // }
 
   deletePolicy(policyId: number) {
     if(confirm('Are you sure you want to delete the Policy?')){
       this.store.dispatch(deletePolicy({policyId}))
-      // debugger;
       this.route.navigate(['']);
       this.toaster.open({ text: 'Policy has been deleted successfully', position: 'top-center', type: 'success' })
   }
 }
-    // this.service.deletePolicy(policyId).subscribe(
-    //   {
-    //     next: (data) => { this.response = data.message },
-    //     error: (error) => this.error = error.error,
-    //     complete:()=>this.Back()
-    //     // this.SearchService.getPolicyByFilter()
-    //   },
-    // );
-  
-  // Back() {
-  //   this.location.back();
-  // }
+
 }

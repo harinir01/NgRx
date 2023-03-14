@@ -1,5 +1,5 @@
 import { HttpClientModule } from '@angular/common/http';
-import { EnvironmentInjector, isDevMode, NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ToastNotificationsModule } from 'ngx-toast-notifications';
@@ -12,7 +12,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { PolicyformComponent } from './shared/policyform/policyform.component';
 import { EditpolicyComponent } from './editpolicy/editpolicy.component';
 import { ViewpolicyinformComponent } from './viewpolicyinform/viewpolicyinform.component';
-import { Routes,RouterModule } from '@angular/router';
 import {StoreModule} from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { policyReducer } from './state/policy.reducer'
@@ -21,24 +20,6 @@ import { POLICY_STATE_NAME } from './state/policy.selector';
 import { CommonModule } from '@angular/common';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-
-const routes:Routes=[
-  {
-    path: '',
-    component: SearchpolicyComponent,
-  },{
-    path: 'createpolicy',
-    component:CreatepolicyComponent
-  },
-  {
-    path: 'editpolicy/:policyId',
-    component:EditpolicyComponent
-  },
-  {
-    path: "viewpolicyinform/:policyId",
-    component:ViewpolicyinformComponent
-  }
-];
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +31,7 @@ const routes:Routes=[
     ViewpolicyinformComponent,
   ],
   imports: [
-    RouterModule.forChild(routes),
+    // RouterModule.forChild(routes),
     StoreModule.forFeature(POLICY_STATE_NAME,policyReducer),
     StoreModule.forRoot({policyReducer}),
     EffectsModule.forRoot([]),

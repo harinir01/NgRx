@@ -3,7 +3,7 @@ import { Toaster } from 'ngx-toast-notifications';
 import { Policy } from 'src/app/Models/policy';
 import { PolicyserviceService } from 'src/app/service/policyservice.service';
 import { Location } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/store/appstate';
 import { editPolicy } from '../state/policy.action';
@@ -38,7 +38,7 @@ export class EditpolicyComponent implements OnInit{
     assetValue: 0,
     coverageId: 0,
   }
-  constructor(private service: PolicyserviceService, private toaster: Toaster,private location : Location,private route: ActivatedRoute,private store: Store<AppState>){
+  constructor(private service: PolicyserviceService, private toaster: Toaster,private route: ActivatedRoute,private store: Store<AppState>){
 
   }
   ngOnInit(): void {
@@ -87,19 +87,7 @@ export class EditpolicyComponent implements OnInit{
   editPolicy(policy : Policy) {
     this.store.dispatch(editPolicy({policy}));
     this.toaster.open({ text: 'Policy updated successfully', position: 'top-center', type: 'success' });
-    // console.log(policy);
-    // this.service.updatePolicy(policy).subscribe({
-    //   next: (data) => this.response = data,
-    //   error: (error) => { this.error = error.error.message, console.warn(error.error.message) },
-    //   complete: () => {
-    //     this.toaster.open({ text: 'Policy updated successfully', position: 'top-center', type: 'success' });
-    //     // this.Back();
-    //   }
-    // });
   }
-  // Back() {
-  //   this.location.back();
-  //   // this.router.navigate(['/searchpolicy']);
-  // }
+  
 
 }

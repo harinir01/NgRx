@@ -43,7 +43,6 @@
           </div>
         </div>
         <div class="input-group">
-          <!-- <div *ngIf="policyId==0; else x"> -->
             <label for="Start date">Start Date</label>
             <input type="date" name="startdate" id="startdate" [readonly]="disabledValue"
               [class.is-invalid]="(formSubmitted && policyForm.controls['StartDate'].invalid)||policyForm.controls['StartDate'].invalid && policyForm.controls['StartDate'].touched"
@@ -113,18 +112,7 @@
               required</span>
           </div>
         </div>
-        <!-- <div class="input-group">
-              <label for="policytype">Policy Type</label>
-              <select id="policytype" name="Policy Type" formControlName="policytype" >
-                <option value="0">Select Policy Type</option>
-                
-                <option *ngFor="let item of policyTypeValue" value={{item.policyTypeId}}>
-                  {{item.policytypeValue}}
-                </option>
-              </select>
-            </div> -->
         <div class="x">
-          <!-- <div *ngIf="policyId==0"> -->
             <label for="Policy Type">Policy Type</label>
             <select id="policytype" name="policytype" formControlName="PolicyType" >
               <option value="" [disabled]="disabledValue">Select Policy Type</option>
@@ -132,13 +120,6 @@
               <option value="2" [disabled]="disabledValue">Vehicle</option>
               <option value="3" [disabled]="disabledValue">Asset</option>
             </select>
-          <!-- </div>  -->
-           <!-- <div *ngIf="policyId!=0">
-            <label for="Policy Type">Policy Type</label>
-            <select id="policytype" name="policytype"  formControlName="PolicyType" [disabled]="false">
-              <option value="">{{policyDetails.PolicyType}}</option>
-            </select>
-          </div> -->
         </div>
   
         <div *ngIf="policyForm.value['PolicyType']=='2'">
@@ -175,8 +156,6 @@
           </select>
         </div>
         <div class="row btns-group1">
-          <!-- <a [routerLink]="['/app-searchpolicy']" class="btn btn-next width-50 ml-auto">Back</a>       -->
-  
           <a (click)="Back()" class="btn btn-next width-50 ml-auto">&nbsp;Back</a> 
           <div *ngIf="type=='view'">
             <a routerLink="/editpolicy/{{policyDetail.policyId}}"><button type="button" class="btn btn-outline-warning"

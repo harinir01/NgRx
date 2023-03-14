@@ -4,9 +4,7 @@ import { query } from './type';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/store/appstate';
 import { getPolicy } from '../state/policy.selector';
-import { Policy } from '../Models/policy';
 import { loadPolicy } from '../state/policy.action';
-import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-searchpolicy',
@@ -44,7 +42,6 @@ export class SearchpolicyComponent {
     });
     querystring = this.service.getFilterValue();   
     this.store.select(getPolicy).subscribe(policies =>this.filterValue=policies);
-    // debugger
     this.store.dispatch(loadPolicy({querystring}));
   }
 
