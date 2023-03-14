@@ -68,20 +68,21 @@ export class EditpolicyComponent implements OnInit{
 
    GetPolicyDetails() {
     // this.store.select(getPolicyById,this.policyId)
-    const policyID=this.policyId;
-    this.store.select(getPolicyById,{ policyID}).subscribe((data:any)=>{
-      console.log(data);
-      this.policyData=data;
-      console.warn(this.policyData);
-    });
+    // const policyID=this.policyId;
+    // this.store.select(getPolicyById,{ policyID}).subscribe((data:any)=>{
+    //   console.log(data);
+    //   this.policyData=data;
+    //   console.warn(this.policyData);
+    // });
+ 
 
     // return this.store.select(state => state.policies.find(policy => policy.id === id));
-  //   this.service.getPolicyById(this.policyId).subscribe({
-  //     next: (data) => {
-  //       this.policyData = data;
-  //       console.log(this.policyData)
-  //     },
-  //   });
+    this.service.getPolicyById(this.policyId).subscribe({
+      next: (data) => {
+        this.policyData = data;
+        console.log(this.policyData)
+      },
+    });
   }
   editPolicy(policy : Policy) {
     this.store.dispatch(editPolicy({policy}));
